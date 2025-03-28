@@ -1,0 +1,458 @@
+/* Dashboard.css */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .dashboard-header h1 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 28px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .user-info span {
+    font-weight: 500;
+  }
+  
+  .logout-btn {
+    background-color: transparent;
+    border: 1px solid #d9534f;
+    color: #d9534f;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .join-btn {
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+  }
+  
+  .join-btn:hover {
+    background-color: #1a68d1;
+  }
+  
+  .copy-btn {
+    background-color: white;
+    color: #2c7be5;
+    border: 1px solid #2c7be5;
+  }
+  
+  .copy-btn:hover {
+    background-color: #f0f7ff;
+  }
+  
+  .client-dashboard {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .client-dashboard h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .meeting-join-form {
+    display: flex;
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  .meeting-join-form input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+  }
+  
+  .meeting-join-form button {
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .meeting-join-form button:hover {
+    background-color: #1a68d1;
+  }
+  
+  .meeting-join-form button:disabled {
+    background-color: #b3d1ff;
+    cursor: not-allowed;
+  }
+  
+  .compliance-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #6f42c1;
+  }
+  
+  .compliance-section h2 {
+    color: #6f42c1;
+    margin-top: 0;
+  }
+  
+  .compliance-section button {
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .compliance-section button:hover {
+    background-color: #5a32a3;
+  }
+  
+  .dashboard-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .security-info {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .secure-badge, .compliance-badge {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .secure-badge {
+    background-color: #e8f5e9;
+    color: #28a745;
+  }
+  
+  .compliance-badge {
+    background-color: #e3f2fd;
+    color: #0d6efd;
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    font-size: 18px;
+    color: #6c757d;
+  }
+  
+  /* VideoConference.css */
+  .video-conference-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .meeting-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .meeting-info h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 20px;
+  }
+  
+  .security-info {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .secure-badge, .encryption-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .secure-badge {
+    background-color: #e8f5e9;
+    color: #28a745;
+  }
+  
+  .encryption-badge {
+    background-color: #fff3e0;
+    color: #ff9800;
+  }
+  
+  .jitsi-container {
+    flex: 1;
+    width: 100%;
+    background-color: #202124;
+  }
+  
+  /* Login.css */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .login-box {
+    max-width: 400px;
+    width: 90%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .login-box h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .login-description {
+    margin-bottom: 25px;
+    color: #6c757d;
+  }
+  
+  .login-btn {
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .login-btn:hover {
+    background-color: #1a68d1;
+  }
+  
+  .login-security-info {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .login-security-info p {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .security-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .security-feature {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .dashboard-content {
+    margin-bottom: 30px;
+  }
+  
+  .meetings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .meetings-header h2 {
+    margin: 0;
+    color: #2c3e50;
+  }
+  
+  .create-meeting-btn {
+    background-color: #2c7be5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .create-meeting-btn:hover {
+    background-color: #1a68d1;
+  }
+  
+  .create-meeting-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #218838;
+  }
+  
+  .no-meetings {
+    text-align: center;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: #6c757d;
+  }
+  
+  .meetings-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+  }
+  
+  .meeting-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .meeting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meeting-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 18px;
+  }
+  
+  .meeting-info p {
+    margin: 5px 0;
+    color: #6c757d;
+  }
+  
+  .meeting-date {
+    font-size: 13px;
+    color: #6c757d;
+  }
+  
+  .meeting-status {
+    font-size: 13px;
+  }
+  
+  .meeting-status span {
+    background-color: #e3f2fd;
+    color: #0d6efd;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .meeting-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .join-btn, .copy-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0
