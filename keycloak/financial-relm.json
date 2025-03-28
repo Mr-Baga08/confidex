@@ -1,0 +1,112 @@
+{
+    "realm": "financial-secure-video",
+    "enabled": true,
+    "users": [
+      {
+        "username": "financial-advisor",
+        "enabled": true,
+        "emailVerified": true,
+        "firstName": "John",
+        "lastName": "Advisor",
+        "email": "advisor@example.com",
+        "credentials": [
+          {
+            "type": "password",
+            "value": "password",
+            "temporary": false
+          }
+        ],
+        "realmRoles": [
+          "financial-advisor"
+        ],
+        "clientRoles": {
+          "secure-video-client": [
+            "create-meeting"
+          ]
+        }
+      },
+      {
+        "username": "client-user",
+        "enabled": true,
+        "emailVerified": true,
+        "firstName": "Jane",
+        "lastName": "Client",
+        "email": "client@example.com",
+        "credentials": [
+          {
+            "type": "password",
+            "value": "password",
+            "temporary": false
+          }
+        ],
+        "realmRoles": [
+          "client"
+        ]
+      },
+      {
+        "username": "compliance-officer",
+        "enabled": true,
+        "emailVerified": true,
+        "firstName": "Sarah",
+        "lastName": "Compliance",
+        "email": "compliance@example.com",
+        "credentials": [
+          {
+            "type": "password",
+            "value": "password",
+            "temporary": false
+          }
+        ],
+        "realmRoles": [
+          "compliance-officer"
+        ],
+        "clientRoles": {
+          "secure-video-client": [
+            "view-logs"
+          ]
+        }
+      }
+    ],
+    "roles": {
+      "realm": [
+        {
+          "name": "financial-advisor",
+          "description": "Financial advisor role"
+        },
+        {
+          "name": "client",
+          "description": "Client role"
+        },
+        {
+          "name": "compliance-officer",
+          "description": "Compliance officer role"
+        }
+      ],
+      "client": {
+        "secure-video-client": [
+          {
+            "name": "create-meeting",
+            "description": "Ability to create meetings"
+          },
+          {
+            "name": "view-logs",
+            "description": "Ability to view audit logs"
+          }
+        ]
+      }
+    },
+    "clients": [
+      {
+        "clientId": "secure-video-client",
+        "enabled": true,
+        "publicClient": true,
+        "redirectUris": [
+          "http://localhost:3000/*"
+        ],
+        "webOrigins": [
+          "http://localhost:3000"
+        ],
+        "directAccessGrantsEnabled": true
+      }
+    ]
+  }

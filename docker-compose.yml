@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # Frontend React application
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  # Backend Express API
+  backend:
+    build: ./backend
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+      - keycloak
+    environment:
+      - DATABASE_URL=postgres://postgres:securepassword@postgres:5432/securevideoapp
+      - KEYCLOAK_URL=http://keycloak:8080
+      - JITSI_APP_ID=secure_video_app
+      - NODE_ENV=development
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=securepassword
+      - POSTGRES_DB=securevideoapp
+
+  # Keycloak for authentication
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0.1
+    ports:
+      - "8080:8080"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://postgres:5432/keycloak
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=securepassword
+    command: start-dev
+    depends_on:
+      - postgres
+
+  # Jitsi Meet
+  jitsi-web:
+    image: jitsi/web:latest
+    ports:
+      - "8000:80"
+      - "8443:443"
+    volumes:
+      - ./jitsi/web:/config
+    environment:
+      - ENABLE_AUTH=1
+      - ENABLE_GUESTS=1
+      - AUTH_TYPE=jwt
+      - DISABLE_HTTPS=1
+      - PUBLIC_URL=http://localhost:8000
+    depends_on:
+      - jitsi-prosody
+
+  jitsi-prosody:
+    image: jitsi/prosody:latest
+    ports:
+      - "5280:5280"
+    volumes:
+      - ./jitsi/prosody:/config
+    environment:
+      - AUTH_TYPE=jwt
+      - JWT_APP_ID=secure_video_app
+      - JWT_APP_SECRET=your_jwt_app_secret
+      - XMPP_DOMAIN=meet.jitsi
+
+  # Nginx for reverse proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+      - jitsi-web
+      - keycloak
+
+volumes:
+  postgres_data:
